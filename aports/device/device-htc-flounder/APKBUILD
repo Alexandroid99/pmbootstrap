@@ -1,0 +1,31 @@
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname="device-htc-flounder"
+pkgdesc="Google Nexus 9"
+pkgver=0.1
+pkgrel=0
+url="https://postmarketos.org"
+license="gpl-v3"
+arch="aarch64"
+options="!check"
+depends="postmarketos-base linux-htc-flounder mkbootimg mesa-dri-swrast linux-firmware firmware-htc-flounder"
+makedepends="devicepkg-dev"
+#subpackages="$pkgname-fstab"
+source="deviceinfo
+	fstab"
+
+build() {
+	devicepkg_build $startdir $pkgname 
+}
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+#device-htc-flounder-fstab() {
+#	install -D -m644 "$srcdir"/initfs-hook.sh \
+#		"$pkgdir"/etc/postmarketos-mkinitfs/hooks/00-${pkgname}.sh
+#}
+
+
+
+sha512sums="14da37349b82887b023e9f4fff455eaad0096fa56504d6b2fa139656535c5ecfe4203477d22f4a598fbafff6e2916028781953ab5b6619e08e25fd98e63517f9  deviceinfo
+203400ec046bbd115d26d3e14c3f73e9b3a5cd6b7b16d616272c8465c863b755868652e32ddd28fc729702d4ce8ca653634eeed801f6bd10545a42cd37cdaec5  fstab"

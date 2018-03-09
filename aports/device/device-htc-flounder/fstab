@@ -1,0 +1,4 @@
+# <file system> <mount point>   <type>  <options>               <dump>  <pass>
+LABEL="pmOS_root"	/	ext4	relatime,data=ordered	0	1
+LABEL="pmOS_boot"	/boot	auto	defaults		0	2
+/dev/block/mmcblk0p24   /vendor ext4      ro                    0       0
