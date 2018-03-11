@@ -22,7 +22,7 @@ package() {
 
 
 
-nonfree_firmware(){
+nonfree_firmware() {
 	pkgdesc="Firmware"
 	depends="linux-firmware firmware-htc-flounder"
 	mkdir "$subpkgdir"
