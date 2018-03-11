@@ -9,7 +9,6 @@ arch="aarch64"
 license="proprietary"
 makedepends="git"
 install=""
-# subpackages="$pkgname-dev $pkgname-doc"
 source=""
 options="!check !strip"
 
