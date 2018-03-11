@@ -10,14 +10,14 @@ options="!check"
 depends="postmarketos-base linux-htc-flounder mkbootimg mesa-dri-swrast linux-firmware firmware-htc-flounder"
 makedepends="devicepkg-dev"
 #subpackages="$pkgname-fstab"
-source="deviceinfo initfs-hook.sh"
+source="deviceinfo"
 
 build() {
 	devicepkg_build $startdir $pkgname 
 }
 package() {
-	install -D -m644 "$srcdir"/initfs-hook.sh \
-		"$pkgdir"/etc/postmarketos-mkinitfs/hooks/00-${pkgname}.sh
+	install -D -m644 "$srcdir"/deviceinfo \
+		"$pkgdir"/etc/deviceinfo
 }
 
 
