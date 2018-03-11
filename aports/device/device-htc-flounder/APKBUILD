@@ -7,20 +7,28 @@ url="https://postmarketos.org"
 license="gpl-v3"
 arch="aarch64"
 options="!check"
-depends="postmarketos-base linux-htc-flounder mkbootimg mesa-dri-swrast linux-firmware firmware-htc-flounder"
+depends="postmarketos-base linux-htc-flounder mkbootimg mesa-dri-swrast"
 makedepends="devicepkg-dev"
-#subpackages="$pkgname-fstab"
+subpackages="linux-firmware firmware-htc-flounder"
 source="deviceinfo"
 
 build() {
 	devicepkg_build $startdir $pkgname 
 }
 package() {
-	install -D -m644 "$srcdir"/deviceinfo \
-		"$pkgdir"/etc/deviceinfo
+	devicepkg_package $startdir $pkgname
+
 }
 
+linux-firmware() {
+	install_if="$pkgname"
+	mkdir "$subpkgdir"
+}
 
+firmware-htc-flounder() {
+	install_if="$pkgname"
+	mkdir "$subpkgdir"
+}
 
 sha512sums="14da37349b82887b023e9f4fff455eaad0096fa56504d6b2fa139656535c5ecfe4203477d22f4a598fbafff6e2916028781953ab5b6619e08e25fd98e63517f9  deviceinfo
 8c4a4ed4a44125db0a65c6731fdd53070f48a629cbb276898579a6f15ec7b5d7fe5a463a347b65475dd8ee6deabfa1da8ea7212411841ab87f14478cf034b521  initfs-hook.sh"
