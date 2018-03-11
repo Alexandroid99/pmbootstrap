@@ -10,7 +10,7 @@ options="!check"
 depends="postmarketos-base linux-htc-flounder mkbootimg mesa-dri-swrast linux-firmware firmware-htc-flounder"
 makedepends="devicepkg-dev"
 #subpackages="$pkgname-fstab"
-source="deviceinfoh"
+source="deviceinfo"
 
 build() {
 	devicepkg_build $startdir $pkgname 
