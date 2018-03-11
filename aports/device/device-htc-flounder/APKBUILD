@@ -9,7 +9,7 @@ arch="aarch64"
 options="!check"
 depends="postmarketos-base linux-htc-flounder mkbootimg mesa-dri-swrast"
 makedepends="devicepkg-dev"
-subpackages="linux-firmware firmware-htc-flounder"
+subpackages="$pkgname-nonfree-firmware:nonfree_firmware"
 source="deviceinfo"
 
 build() {
@@ -20,15 +20,11 @@ package() {
 
 }
 
-linux-firmware() {
-	install_if="$pkgname"
+
+
+nonfree_firmware(){
+	pkgdesc="Firmware"
+	depends="linux-firmware firmware-htc-flounder"
 	mkdir "$subpkgdir"
 }
-
-firmware-htc-flounder() {
-	install_if="$pkgname"
-	mkdir "$subpkgdir"
-}
-
-sha512sums="14da37349b82887b023e9f4fff455eaad0096fa56504d6b2fa139656535c5ecfe4203477d22f4a598fbafff6e2916028781953ab5b6619e08e25fd98e63517f9  deviceinfo
-7a1367deb68fbba7aed5ef09b853e1952c47b8bf1cb735c52f2799e8fced7b198aeb402c066d682e579a98c01895116f6d17881602373d45cc81a4a8b264d081  initfs-hook.sh"
+sha512sums="f7878d2e769862c3197e6e9c552d5b2d176df88ad3cfc80964c1b3f98f9878cc217c1154d083eaa8835b578b12368b4bede99223db1df26b07538834507d241d  deviceinfo"
