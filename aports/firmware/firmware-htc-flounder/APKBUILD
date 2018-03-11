@@ -39,14 +39,14 @@ package() {
 	cd "$srcdir"
 
 	for _i in $_files1; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
+	install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
 			"$pkgdir/lib/firmware/postmarketos/$_i"
 	done
 
 
 
 	for _i in $_files2; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
+	install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
 			"$pkgdir/lib/firmware/postmarketos/tegra13x/$_i"
 	done
 
