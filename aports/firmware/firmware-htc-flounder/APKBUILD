@@ -18,47 +18,16 @@ _files1="fw_bcmdhd.bin rt5677_elf_vad nvavp_aud_ucode.bin nvavp_os_8ff00000.bin 
 fw_bcmdhd_apsta.bin  nvavp_aacdec_ucode.bin  nvavp_os_0ff00000.bin   nvavp_os_f7e00000.bin  touch_fusion.cfg         bcm4354.hcd    sensor_hub.img"
 
 _files2="fecs.bin  gpccs.bin  gpmu_ucode.bin  NETB_img.bin  nvhost_msenc031.fw  nvhost_tsec.fw  vic03_ucode.bin"
-_files3="libglcore.so libnvcamerahdr.so libnvfusebypass.so      libnvmmlite_image.so  libnvodm_imager.so   libnvrm_graphics.so  libnvwsi.so              libWVStreamControlAPI_L1.so \
-	libhtcacoustic.so       libnvcam_imageencoder.so  libnvglsi.so            libnvmmlite.so        libnvodm_query.so    libnvrm.so           liboemcrypto.so\
-	libLifevibes_lvverx.so  libnvcapclk.so            libnvgr.so              libnvmmlite_utils.so  libnvomxilclient.so  libnvRSCompiler.so   libopencv24_tegra.so \
-	libclcore_nvidia.bc  libLifevibes_lvvetx.so  libnvcms.so               libnvisp_v3.so          libnvmmlite_video.so  libnvomx.so          libnvRSDriver.so     libperipheral_client.so \
-	libaudioavp.so       libmdmdetect.so         libnvcompute.so           libnvmm_audio.so        libnvmm_parser.so     libnvos.so           libnvsm.so           libstagefrighthw.so \
-	libbt-vendor.so      libnvapputil.so         libnvddk_2d.so            libnvmm_camera_v3.so    libnvmm.so            libnvparser.so       libnvtnr.so          libtsechdcp.so \
-	libdrmdecrypt.so     libnvavp.so             libnvddk_2d_v2.so         libnvmm_contentpipe.so  libnvmm_utils.so      libnvptx.so          libnvtvmr.so         libwvdrm_L1.so \
-	libfrsdk.so          libnvblit.so            libnvddk_vic.so           libnvmmlite_audio.so    libnvmm_writer.so     libnvrmapi_tegra.so  libnvvicsi_v3.so     libwvm.so"
-_files4="libEGL_tegra.so  libGLESv1_CM_tegra.so  libGLESv2_tegra.so"
-_files5="camera.tegra132.so      gralloc.tegra132.so     keystore.flounder.so gatekeeper.flounder.so  hwcomposer.tegra132.so  memtrack.tegra132.so"
-_files6="libdrmclearkeyplugin.so  libwvdrmengine.so"
-_files7="tegrastats  tlk_daemon  touch_fusion"
+
 _commit="27024f568d1eee70c4a12f3f46aec33f6ee2f225"
 _url1="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/firmware"
 _url2="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/firmware/tegra13x"
-_url3="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/lib64"
-_url4="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/lib64/egl"
-_url5="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/lib64/hw"
-_url6="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/lib64/mediadrm"
-_url7="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/bin"
 source=""
 for _i in $_files1; do
 	source="$source $pkgname-$_commit-$_i::$_url1/$_i";
 done
 for _i in $_files2; do
 	source="$source $pkgname-$_commit-$_i::$_url2/$_i";
-done
-for _i in $_files3; do
-	source="$source $pkgname-$_commit-$_i::$_url3/$_i";
-done
-for _i in $_files4; do
-	source="$source $pkgname-$_commit-$_i::$_url4/$_i";
-done
-for _i in $_files5; do
-	source="$source $pkgname-$_commit-$_i::$_url5/$_i";
-done
-for _i in $_files6; do
-	source="$source $pkgname-$_commit-$_i::$_url6/$_i";
-done
-for _i in $_files7; do
-	source="$source $pkgname-$_commit-$_i::$_url7/$_i";
 done
 package() {
 	for _i in $_files1 $_files2; do
@@ -67,28 +36,7 @@ package() {
 	done
 	for _i in $_files2; do
 		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
-			"$pkgdir/lib/firmware/postmarketos/tegra13x$_i"
-	done
-	for _i in $_files3; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
-			"$pkgdir/lib/$_i"
-	done
-	for _i in $_files4; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
-			"$pkgdir/lib/egl/$_i"
-	done
-	for _i in $_files5; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
-			"$pkgdir/lib/hw/$_i"
-	done
-	for _i in $_files6; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
-			"$pkgdir/lib/mediadrm/$_i"
-	done
-	for _i in $_files7; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
-			"$pkgdir/usr/bin/$_i"
-	done
+			"$pkgdir/lib/firmware/postmarketos/tegra13x/$_i"
 
 }
 sha512sums="1ae8fdbe633782fba23ddf3843c3b5baaabceb2d8d6f75517356884762f972829c5fd5deac3956e2183d49469823df9a9c2fbbdd5221f6863e45292c1c6f1a6b  firmware-htc-flounder-27024f568d1eee70c4a12f3f46aec33f6ee2f225-fw_bcmdhd.bin
