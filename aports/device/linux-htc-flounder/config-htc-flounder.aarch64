@@ -447,7 +447,7 @@ CONFIG_SECCOMP=y
 #
 # Boot options
 #
-CONFIG_CMDLINE="no_console_suspend=1 tegra_wdt.enable_on_probe=1 tegra_wdt.heartbeat=120 androidboot.hardware=flounder"
+CONFIG_CMDLINE="no_console_suspend=1 tegra_wdt.enable_on_probe=1 tegra_wdt.heartbeat=120 androidboot.hardware=flounder androidboot.selinux=permissive selinux=0"
 # CONFIG_CMDLINE_FROM_BOOTLOADER is not set
 CONFIG_CMDLINE_EXTEND=y
 # CONFIG_CMDLINE_FORCE is not set
@@ -509,9 +509,9 @@ CONFIG_CPU_FREQ_STAT=y
 # CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE is not set
 # CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE is not set
 # CONFIG_CPU_FREQ_DEFAULT_GOV_USERSPACE is not set
-# CONFIG_CPU_FREQ_DEFAULT_GOV_ONDEMAND is not set
+CONFIG_CPU_FREQ_DEFAULT_GOV_ONDEMAND=y
 # CONFIG_CPU_FREQ_DEFAULT_GOV_CONSERVATIVE is not set
-CONFIG_CPU_FREQ_DEFAULT_GOV_INTERACTIVE=y
+# CONFIG_CPU_FREQ_DEFAULT_GOV_INTERACTIVE is not set
 CONFIG_CPU_FREQ_GOV_PERFORMANCE=y
 CONFIG_CPU_FREQ_GOV_POWERSAVE=y
 CONFIG_CPU_FREQ_GOV_USERSPACE=y
