@@ -12,12 +12,14 @@ source=""
 options="!check !strip"
 
 # Sources
-_files1="fw_bcmdhd.bin rt5677_elf_vad nvavp_aud_ucode.bin nvavp_os_8ff00000.bin nvavp_vid_ucode_alt.bin  bcm4350b1.hcd  sar0_CY8C.img   synaptics.img \
-	maxim_fp35.bin nvavp_mp3dec_ucode.bin  nvavp_os_eff00000.bin  bcmdhd.cal  bcm4350c0.hcd  sar1_CY8C.img   bcm20795_firmware.ncd \
-fw_bcmdhd_apsta.bin  nvavp_aacdec_ucode.bin  nvavp_os_0ff00000.bin   nvavp_os_f7e00000.bin  touch_fusion.cfg         bcm4354.hcd    sensor_hub.img"
-
-_files2="fecs.bin  gpccs.bin  gpmu_ucode.bin  NETB_img.bin  nvhost_msenc031.fw  nvhost_tsec.fw  vic03_ucode.bin"
-
+_files1="bcm20795_firmware.ncd bcm4350b1.hcd bcm4350c0.hcd bcm4354.hcd bcmdhd.cal
+	fw_bcmdhd.bin fw_bcmdhd_apsta.bin maxim_fp35.bin nvavp_aacdec_ucode.bin
+	nvavp_aud_ucode.bin nvavp_mp3dec_ucode.bin nvavp_os_0ff00000.bin
+	nvavp_os_8ff00000.bin nvavp_os_eff00000.bin nvavp_os_f7e00000.bin
+	nvavp_vid_ucode_alt.bin rt5677_elf_vad sar0_CY8C.img sar1_CY8C.img
+	sensor_hub.img synaptics.img touch_fusion.cfg"
+_files2="NETB_img.bin fecs.bin gpccs.bin gpmu_ucode.bin nvhost_msenc031.fw
+	nvhost_tsec.fw vic03_ucode.bin"
 
 _url1="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/firmware"
 _url2="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/firmware/tegra13x"
@@ -37,14 +39,14 @@ package() {
 	cd "$srcdir"
 
 	for _i in $_files1; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
+	install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
 			"$pkgdir/lib/firmware/postmarketos/$_i"
 	done
 
 
 
 	for _i in $_files2; do
-		install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
+	install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
 			"$pkgdir/lib/firmware/postmarketos/tegra13x/$_i"
 	done
 
