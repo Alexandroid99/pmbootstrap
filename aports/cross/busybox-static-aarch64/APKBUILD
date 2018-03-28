@@ -2,7 +2,7 @@
 # Generator: pmbootstrap aportgen busybox-static-aarch64
 
 pkgname=busybox-static-aarch64
-pkgver=1.28.1
+pkgver=1.28.2
 pkgrel=0
 
 _arch="aarch64"
@@ -26,4 +26,4 @@ package() {
     rm .PKGINFO .SIGN.*
 }
 
-sha512sums="bc4e3aa4c1ee0ee6b136096a2132e8b97cb50bb77137f58baf9b8addb2aaebc436d8cc4d65f75ebf7fb837374c37fd47d87b22d15353ff2bea6e87c7cc901e4f  busybox-static-1.28.1-r0-aarch64.apk"
+sha512sums="16775c83ac783f5740ef07654c1fdcc29b158278b0489e476d292cf227e0c3733c0799e5f63c017a88f4b0c060aacfb178bc190b2c2fbc6b2b6f2c7f92488afc  busybox-static-1.28.2-r0-aarch64.apk"

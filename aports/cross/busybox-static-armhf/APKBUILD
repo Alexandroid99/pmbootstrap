@@ -2,7 +2,7 @@
 # Generator: pmbootstrap aportgen busybox-static-armhf
 
 pkgname=busybox-static-armhf
-pkgver=1.28.1
+pkgver=1.28.2
 pkgrel=0
 
 _arch="armhf"
@@ -26,4 +26,4 @@ package() {
     rm .PKGINFO .SIGN.*
 }
 
-sha512sums="0b5a22ee4fcf3c4f13629d089943d52edb3abee0cf9cf263f7dc052f67964cd428f7985c57fd3d53560e7f5c1e14acfad50417791cb1c6c4ac8ac270de30cb70  busybox-static-1.28.1-r0-armhf.apk"
+sha512sums="f5172f1816c29898b8ddb19fcb12a5584d13052920cbf95a0757b8ca4199803433752cf3754b4baf2ed2c44469bbb36be9ae47209ba56e7c7b66e66f7fe567da  busybox-static-1.28.2-r0-armhf.apk"
