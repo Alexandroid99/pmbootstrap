@@ -19,12 +19,9 @@ package() {
 	devicepkg_package $startdir $pkgname
 
 }
-
-
-
 nonfree_firmware() {
 	pkgdesc="Firmware"
-	depends="linux-firmware firmware-htc-flounder"
+	depends="linux-firmware-brcm firmware-htc-flounder"
 	mkdir "$subpkgdir"
 }
 sha512sums="f7878d2e769862c3197e6e9c552d5b2d176df88ad3cfc80964c1b3f98f9878cc217c1154d083eaa8835b578b12368b4bede99223db1df26b07538834507d241d  deviceinfo"
