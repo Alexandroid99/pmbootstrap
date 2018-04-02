@@ -10,19 +10,19 @@ options="!check"
 depends="postmarketos-base linux-htc-flounder mkbootimg mesa-dri-swrast libsparse"
 makedepends="devicepkg-dev"
 subpackages="$pkgname-nonfree-firmware:nonfree_firmware"
-source="deviceinfo"
+source="deviceinfo initfs-hook.sh"
 
 build() {
 	devicepkg_build $startdir $pkgname 
 }
 package() {
 	devicepkg_package $startdir $pkgname
-	install -D -m644 "$srcdir"/initfs-hook.sh \
-		"$pkgdir"/etc/postmarketos-mkinitfs/hooks/00-${pkgname}.sh
+	install -Dm644 "$srcdir"/initfs-hook.sh "$pkgdir"/etc/postmarketos-mkinitfs/hooks/00-${pkgname}.sh
 }
 nonfree_firmware() {
 	pkgdesc="Firmware"
 	depends="linux-firmware-brcm firmware-htc-flounder"
 	mkdir "$subpkgdir"
 }
-sha512sums="48be91a584861fb2db3d10577b718a1b9daa9ad4fe531c5b79946fe52e89cfecf16559ea4558b4fd736f1e04d4df43c79256c29165d08457507ac2c315bd3cfb  deviceinfo"
+sha512sums="48be91a584861fb2db3d10577b718a1b9daa9ad4fe531c5b79946fe52e89cfecf16559ea4558b4fd736f1e04d4df43c79256c29165d08457507ac2c315bd3cfb  deviceinfo
+7522080ccf7a7067a0a4022869d50a3bc7e5685db0b3205f18ec731be05a00d5fab159021f3a6e81740bd4fb8a9b49861461eb52cd0f51b415119cf89a629ab6  initfs-hook.sh"
