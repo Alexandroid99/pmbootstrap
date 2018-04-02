@@ -24,4 +24,4 @@ nonfree_firmware() {
 	depends="linux-firmware-brcm firmware-htc-flounder"
 	mkdir "$subpkgdir"
 }
-sha512sums="f7878d2e769862c3197e6e9c552d5b2d176df88ad3cfc80964c1b3f98f9878cc217c1154d083eaa8835b578b12368b4bede99223db1df26b07538834507d241d  deviceinfo"
+sha512sums="48be91a584861fb2db3d10577b718a1b9daa9ad4fe531c5b79946fe52e89cfecf16559ea4558b4fd736f1e04d4df43c79256c29165d08457507ac2c315bd3cfb  deviceinfo"
