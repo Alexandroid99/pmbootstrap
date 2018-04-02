@@ -17,7 +17,8 @@ build() {
 }
 package() {
 	devicepkg_package $startdir $pkgname
-
+	install -D -m644 "$srcdir"/initfs-hook.sh \
+		"$pkgdir"/etc/postmarketos-mkinitfs/hooks/00-${pkgname}.sh
 }
 nonfree_firmware() {
 	pkgdesc="Firmware"
