@@ -25,13 +25,13 @@ _url1="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/firmwar
 _url2="https://github.com/Alexandroid99/vendor_htc_flounder/raw/$_commit/firmware/tegra13x"
 source=""
 
-	for _i in $_files1; do
+for _i in $_files1; do
 		source="$source $pkgname-$_commit-$_i::$_url1/$_i";
-	done
+done
 
-	for _i in $_files2; do
+for _i in $_files2; do
 		source="$source $pkgname-$_commit-$_i::$_url2/$_i";
-	done
+done
 
 
 package() {
