@@ -35,7 +35,6 @@ done
 
 
 package() {
-
 	cd "$srcdir"
 
 	for _i in $_files1; do
@@ -43,13 +42,10 @@ package() {
 			"$pkgdir/lib/firmware/postmarketos/$_i"
 	done
 
-
-
 	for _i in $_files2; do
 	install -Dm644 "$srcdir/$pkgname-$_commit-$_i" \
 			"$pkgdir/lib/firmware/postmarketos/tegra13x/$_i"
 	done
-
 }
 sha512sums="1ae8fdbe633782fba23ddf3843c3b5baaabceb2d8d6f75517356884762f972829c5fd5deac3956e2183d49469823df9a9c2fbbdd5221f6863e45292c1c6f1a6b  firmware-htc-flounder-27024f568d1eee70c4a12f3f46aec33f6ee2f225-fw_bcmdhd.bin
 b0404fd81ecde5ed67dabb72790956b04cae836ac53b3059e24cd1a0af610430e355739bf8b9977e3af711556efea44e6b1cbea57849e3e96765fb121174c971  firmware-htc-flounder-27024f568d1eee70c4a12f3f46aec33f6ee2f225-rt5677_elf_vad
